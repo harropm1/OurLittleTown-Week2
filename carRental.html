@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!--My CSS, Google Fonts, and favicon-->
+    <link rel="stylesheet" href="css/site.css">
+
+    <link rel="icon" href="images/house.png">
+
+    <title>Our Little Town</title>
+</head>
+
+<body>
+    <!--nav bar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+        <a class="navbar-brand" href="index.html">Town Hall</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="hotelReservations.html">Inn Reservations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Things to Do</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <h1 class="display-1 text-center">Our Little Town</h1>
+    </header>
+
+    <main>
+        <!--description of page-->
+        <div class="container">
+            <article class="text-center">
+                <h2 class="display-4">Welcome to ACME Car Rental</h2>
+                <p>ACME Car Rental is here to help with your rental needs. We have many styles and classes of cars. Kirk will help you find the right one for you.</p>
+                <p class="form-text text-muted">
+                    Please enter your information below and we get you on the road!
+                </p>
+            </article>
+            <!--description of page-->
+
+            <!--form and what the action should be, but test environments don't work-->
+            <!--<form name="carRental" action="#" method="POST">-->
+            <form name="carRental" action="#" method="GET" id="inputForm">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <label for="carType">Car Type</label>
+                        <select class="form-control" id="carType" name="carType" autofocus>
+                            <option value="eco" selected>Economy</option>
+                            <option value="comp">Compact</option>
+                            <option value="int">Intermediate</option>
+                            <option value="full">Full Size</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <label for="pickupDate">Pickup date</label>
+                        <input type="date" class="form-control" id="pickupDate" name="pickupDate"
+                            placeholder="2019-08-01" min="2019-07-01" max="2020-08-31">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <label for="numberDays">Number of days</label>
+                        <select class="form-control" id="numberDays" name="numberDays">
+                            <option value="1" selected>1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <p>Options:</p>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="tollTag" id="tollTag">
+                            <label class="form-check-label" for="tollTag">
+                                Electronic Toll Tag ($3.95/Day)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="gps" id="gps">
+                            <label class="form-check-label" for="gps">
+                                GPS ($2.95/Day)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="roadside" id="roadside">
+                            <label class="form-check-label" for="roadside">
+                                Roadside Assistance ($2.95/day)
+                            </label>
+                        </div>
+                        <br />
+                        <p>Under 25?</p>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="under25" id="u25No" value="No" checked>
+                            <label class="form-check-label" for="u25No">No</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="under25" id="u25Yes" value="Yes">
+                            <label class="form-check-label" for="u25Yes">Yes</label>
+                        </div>
+                        <br />
+                        <br />
+                        <button type="button" class="btn btn-outline-success" id="estTotalCost">Estimate Total Rental Cost</button>
+                        <button type="reset" class="btn btn-outline-danger">Reset</button>
+                    </div>
+                </div>
+                <hr>
+                <!--form for results-->
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <label for="subtotal">Car Rental Subtotal</label>
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">$</div>
+                            <input class="form-control" type="text" id="subtotal" name="subtotal" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <label for="optionsCost">Total cost of optional items</label>
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">$</div>
+                            <input class="form-control" type="text" id="optionsCost" name="optionsCost" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <label for="u25charge">Under 25 Surcharge</label>
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">$</div>
+                            <input class="form-control" type="text" id="u25charge" name="u25charge" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <label for="finalTotal">Total Due</label>
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">$</div>
+                            <input class="form-control" type="text" id="finalTotal" name="finalTotal" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <label for="returnDate">Return Date</label>
+                        <input class="form-control" type="text" id="returnDate" name="returnDate" readonly>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!--footer-->
+    <hr>
+    <footer class="text-right">
+        <p>All names, locations, and people mentioned are from the TV show "Gilmore Girls". I just borrowed them for
+            this project.</p>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <!--My JavaScript-->
+    <script src="scripts/carRental.js"></script>
+</body>
+
+</html>
