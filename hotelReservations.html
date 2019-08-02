@@ -11,6 +11,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!--My CSS, Google Fonts, and favicon-->
+    <link rel="stylesheet" href="css/site.css">
 
     <link rel="icon" href="images/house.png">
 
@@ -73,7 +74,7 @@
                     <div class="form-row">
                         <div class="col-md-6">
                             <label for="checkinDate">Check-In Date</label>
-                            <input type="date" class="form-control" id="checkinDate" name="checkinDate"  min="2019-08-01" max="2021-12-31">
+                            <input type="date" class="form-control" id="checkinDate" name="checkinDate">
                         </div>
                     </div>
                     <!--This is the select for the number of nights-->
@@ -146,7 +147,7 @@
                         </label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="breakfast" value="no" id="noBfast">
+                        <input class="form-check-input" type="radio" name="breakfast" value="no" id="noBfast" checked>
                         <label class="form-check-label" for="noBfast">
                             No
                         </label>
@@ -178,13 +179,16 @@
                     <hr>
                     <!--form for results-->
                     <div class="form-row">
+                        <div class="col-md-6 alert alert-danger hidden" role="alert" id="noRoomAtInn"></div>
+                    </div>
+                    <div class="form-row">
                         <div class="col-md-3">
                             <label for="finalCheckIn">Check-In Date</label>
-                            <input class="form-control" type="number" id="finalCheckIn" name="finalCheckIn" readonly>
+                            <input class="form-control" type="text" id="finalCheckIn" name="finalCheckIn" readonly>
                         </div>
                         <div class="col-md-3">
                             <label for="finalCheckOut">Check-Out Date</label>
-                            <input class="form-control" type="number" id="finalCheckOut" name="finalCheckOut" readonly>
+                            <input class="form-control" type="text" id="finalCheckOut" name="finalCheckOut" readonly>
                         </div>
                     </div>
                     <div class="form-row">
