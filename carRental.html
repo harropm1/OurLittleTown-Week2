@@ -33,7 +33,7 @@
                     <a class="nav-link" href="hotelReservations.html">Inn Reservations</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Things to Do</a>
+                    <a class="nav-link" href="thingsToDo.html">Things to Do</a>
                 </li>
             </ul>
         </div>
@@ -69,11 +69,11 @@
                         </select>
                     </div>
                 </div>
+                <!--this may not accept in a validator because it is not supported in all browsers-->
                 <div class="form-row">
                     <div class="col-md-6">
                         <label for="pickupDate">Pickup date</label>
-                        <input type="date" class="form-control" id="pickupDate" name="pickupDate"
-                            placeholder="2019-08-01" min="2019-07-01" max="2020-08-31">
+                        <input type="date" class="form-control" id="pickupDate" name="pickupDate" min="2019-07-01" max="2020-08-31">
                     </div>
                 </div>
                 <div class="form-row">
@@ -104,7 +104,7 @@
                     </div>
                 </div>
                 <div class="form-row">
-                    <p>Options:</p>
+                    <p class="break">Options:</p>
                 </div>
                 <div class="form-row">
                     <div class="col-md-6">
@@ -126,8 +126,7 @@
                                 Roadside Assistance ($2.95/day)
                             </label>
                         </div>
-                        <br />
-                        <p>Under 25?</p>
+                        <p class="break">Under 25?</p>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="under25" id="u25No" value="No" checked>
                             <label class="form-check-label" for="u25No">No</label>
@@ -137,9 +136,8 @@
                             <label class="form-check-label" for="u25Yes">Yes</label>
                         </div>
                         <br />
-                        <br />
-                        <button type="button" class="btn btn-outline-success" id="estTotalCost">Estimate Total Rental Cost</button>
-                        <button type="reset" class="btn btn-outline-danger">Reset</button>
+                        <button type="button" class="btn btn-primary" id="estTotalCost">Estimate Total Rental Cost</button>
+                        <button type="reset" class="btn btn-danger">Reset</button>
                     </div>
                 </div>
                 <hr>
