@@ -1,0 +1,1 @@
+This is the repo for the second week's Friday Project. The site is a travel site for a small town in the middle of nowhere. It includes a home page and a page searching for rooms at the local hotel. It may include other pages as well.
