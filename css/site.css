@@ -1,5 +1,13 @@
-
-
-#noRoomAtInn {
-    display: none;
+body {
+    background-color: #80d3d9;
+}
+h1, h2, h3 {
+    color: #152c59;
+}
+button {
+    margin-top: 15px;
+}
+.break {
+    margin-top: 10px;
+    margin-bottom: 5px;
 }
