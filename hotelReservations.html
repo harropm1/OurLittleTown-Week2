@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!--My CSS, Google Fonts, and favicon-->
+
+    <link rel="icon" href="images/house.png">
+
+    <title>Our Little Town</title>
+</head>
+
+<body>
+    <!--nav bar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+        <a class="navbar-brand" href="index.html">Town Hall</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Rental Car Reservations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Things to Do</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <h1 class="display-1 text-center">Our Little Town</h1>
+    </header>
+
+    <main>
+            <!--description of page-->
+            <div class="container">
+                <article class="text-center">
+                    <h2 class="display-4">Welcome to the Dragonfly Inn!</h2>
+                    <p>The historic Dragonfly Inn was established in 2004, and was carefully restored by Lorelai Gilmore and Sookie St. James. The hotel features many different types of rooms, a wonderful lobby, and an award-winning restaurant run by Sookie St. James.</p>
+                    <p class="form-text text-muted">
+                    Please enter your information below and we will search for a room for you!
+                    </p>
+                    <p class="form-text text-muted">
+                    For multiple rooms, please contact us at 555-867-5309.
+                    </p>
+                </article>
+                <!--form and what the action should be, but test environments don't work-->
+                <!--<form name="roomReservation" action="#" method="POST">-->
+                <form name="roomReservation" action="#" method="GET" id="inputForm">
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <label for="roomType">Room Type</label>
+                            <select class="form-control" id="roomType" name="roomType" autofocus>
+                                <option value="roomSelect" selected>Select One</option>
+                                <option value="queen">Queen</option>
+                                <option value="king">King</option>
+                                <option value="kingSuite">King Suite</option>
+                                <option value="bedroomSuite">2-Bedroom Suite</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <label for="checkinDate">Check-In Date</label>
+                            <input type="date" class="form-control" id="checkinDate" name="checkinDate"  min="2019-08-01" max="2021-12-31">
+                        </div>
+                    </div>
+                    <!--This is the select for the number of nights-->
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <label for="numberNights">Number of Nights you'd like to stay</label>
+                            <select class="form-control" id="numberNights" name="numberNights">
+                                <option value="1" selected>1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--select for number of adults-->
+                    <div class="form-row">
+                        <div class="col-md-3">
+                            <label for="numberAdults">Number of Adults</label>
+                            <select class="form-control" id="numberAdults">
+                                <option value="adults" select>Select a number of adults</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="numberKids">Number of Children</label>
+                            <select class="form-control" id="numberKids">
+                                <option value="children" select>Select a number of children</option>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </div>
+                    </div> 
+                    <br />   
+                    <p>Would you like to include breakfast? ($6.96/adult and $3.95/child per day)</p>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="breakfast" value="yes" id="yesBfast">
+                        <label class="form-check-label" for="yesBfast">
+                            Yes
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="breakfast" value="no" id="noBfast">
+                        <label class="form-check-label" for="noBfast">
+                            No
+                        </label>
+                    </div>
+                    <br />
+                    <br />
+                    <p>Are you eligible for a discount?</p>
+                    <small class="form-text text-muted">Please have the proper card available at check-in</small>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="discount" id="none" value="none" checked>
+                        <label class="form-check-label" for="none">None</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="discount" id="aaa" value="aaa">
+                        <label class="form-check-label" for="aaa">AAA Discount</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="discount" id="senior" value="senior">
+                        <label class="form-check-label" for="senior">Senior Discount</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="discount" id="military" value="military">
+                        <label class="form-check-label" for="military">Military Discount</label>
+                    </div>
+                    <br />
+                    <button type="button" class="btn btn-outline-success" id="estRoomCost">Estimate Cost of Your Stay</button>
+                    <button type="reset" class="btn btn-outline-danger">Reset</button>
+    
+                    <hr>
+                    <!--form for results-->
+                    <div class="form-row">
+                        <div class="col-md-3">
+                            <label for="finalCheckIn">Check-In Date</label>
+                            <input class="form-control" type="number" id="finalCheckIn" name="finalCheckIn" readonly>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="finalCheckOut">Check-Out Date</label>
+                            <input class="form-control" type="number" id="finalCheckOut" name="finalCheckOut" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <label for="roomSubtotal">Room Cost (including breakfast, if applicable)</label>
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">$</div>
+                                <input class="form-control" type="text" id="roomSubtotal" name="roomSubtotal" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <label for="discount">Discount</label>
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">$</div>
+                                <input class="form-control" type="text" id="discount" name="discountField" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <label for="tax">Tax</label>
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">$</div>
+                                <input class="form-control" type="text" id="tax" name="tax" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <label for="finalTotal">Total Cost of Your Stay</label>
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">$</div>
+                                <input class="form-control" type="text" id="finalTotal" name="finalTotal" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+    <!--footer-->
+    <hr>
+    <footer class="text-right">
+        <p>All names, locations, and people mentioned are from the TV show "Gilmore Girls". I just borrowed them for this project.</p>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <!--My JavaScript-->
+    <script src="scripts/hotelReservations.js"></script>
+</body>
+
+</html>
