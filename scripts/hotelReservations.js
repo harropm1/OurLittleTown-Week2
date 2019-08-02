@@ -127,7 +127,7 @@ window.onload = function ()
         let roomHoldCustomer = canRoomHoldCustomer(rooms, roomTypeVariable, Number(numberAdultsField.value), Number(numberKidsField.value));
         if (roomHoldCustomer == false)
         {
-            noRoomAtInnField.innerHTML = "You have too many people for that room. Please choose another room option or call us at 555-867-5309 to book more than one room."
+            alert("You have too many people for that room. Please choose another room option or call us at 555-867-5309 to book more than one room.")
             return;
         }
 
