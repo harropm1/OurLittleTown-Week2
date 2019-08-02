@@ -2,7 +2,7 @@
 
 //this calculates the price of a hotel by using functions with parameters
 
-//get subtotal of rental with number of days and car types pulled in
+//see if a hotel room can hold a given amount of people, given the rooms array and the room type, number of adults and number of kids from the website
 function canRoomHoldCustomer(rooms, roomTypeInput, numberAdults, numberKids)
 {
     let occupants = numberAdults + numberKids;
@@ -17,7 +17,7 @@ function canRoomHoldCustomer(rooms, roomTypeInput, numberAdults, numberKids)
     return false;
 }
 
-//get subtotal of rental with number of days and car types pulled in
+//get the cost of the room, given the rooms array, and the room type and number of nights from the website
 function getRoomCost(rooms, roomTypeInput, checkinDate, numberNights)
 {
     let roomCost = 0;
@@ -33,7 +33,7 @@ function getRoomCost(rooms, roomTypeInput, checkinDate, numberNights)
     return roomCost;
 }
 
-//get total of breakfast
+//get total of breakfast, given number of adults, number of kids and number of nights from the website
 function getBreakfastCost(numberAdults, numberKids, numberNights)
 {
     let breakfastCostInput = document.querySelector("input[name='breakfast']:checked").value;
@@ -47,6 +47,7 @@ function getBreakfastCost(numberAdults, numberKids, numberNights)
     return breakfastCost;
 }
 
+//get the discount on a room, given the total cost from other functions (fully calculated below) and the discount amount selected on the website
 function getDiscount(roomCostBeforeDiscount, discount)
 {
     discount = document.querySelector("input[name=discount]:checked").value;
@@ -69,7 +70,7 @@ function getDiscount(roomCostBeforeDiscount, discount)
     return totalDiscount;
 }
 
-//get drop off date for car
+//get the checkout date from the check-in date and number of nights
 function getCheckOutDate(checkinDate, numberNights)
 {
     let checkOutDate;
@@ -89,6 +90,7 @@ function getCheckOutDate(checkinDate, numberNights)
     return checkOutDate;
 }
 
+//window on load
 window.onload = function ()
 {
     let rooms = [
@@ -135,6 +137,7 @@ window.onload = function ()
         //breakfast cost with parameters passed
         let breakfastCost = getBreakfastCost(Number(numberAdultsField.value), Number(numberKidsField.value), Number(numberNightsField.value), discountField.checked);
 
+        //making breakfast free for people with senior discounts
         if (document.getElementById("senior").checked)
         {
             breakfastCost = 0;
@@ -142,11 +145,9 @@ window.onload = function ()
 
         //calculation to create subtotal for room cost
         let totalRoomCost = breakfastCost + roomsSubtotal;
-        console.log (totalRoomCost);
 
         //discount amount with total room cost from below and dicsount field as parameters
         let discountAmount = getDiscount(totalRoomCost, discountField.value);
-        console.log(discountAmount);
 
         //checkoutdate with parameters passed
         let checkinDate = checkinDateField.value;
@@ -154,12 +155,11 @@ window.onload = function ()
         let checkOutDate = getCheckOutDate(checkinDateField.value, Number(numberNightsField.value));
 
         //tax calculations
-        let totalBeforeTax = discountAmount + totalRoomCost;
+        let totalBeforeTax = totalRoomCost - discountAmount;
         let taxAmount = totalBeforeTax * .12;
-        console.log(taxAmount);
-
+    
+        //calculate the final total
         let finalTotal = taxAmount + totalBeforeTax;
-        console.log(finalTotal);
 
         //where values are going = the call from above
         finalCheckInField.value = correctDate;
