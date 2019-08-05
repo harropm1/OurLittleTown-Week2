@@ -2,7 +2,9 @@
 
 //this calculates the price of a rental car by using functions with parameters
 
-//get subtotal of rental with number of days and car types pulled in
+/* This function gets subtotal of a rental car
+* @param carType (string)  - the car type chosen by the user
+* @param numberDays (number)  - the number of days chosen by the user */ 
 function getRentalSubtotal(numberDays, carType)
 {
     let rentalSubtotal = 0;
@@ -25,7 +27,11 @@ function getRentalSubtotal(numberDays, carType)
     return rentalSubtotal;
 }
 
-//get total of options
+/* This function gets a total of the options on a rental car
+* @param numberDays (number)  - the number of days chosen by the user 
+* @param tollTag (string)  - the checkbox if they want a toll tag added
+* @param gps (string)  - the checkbox if they want a gps added
+* @param roadside (string)  - the checkbox if they want roadside assistance added */ 
 function getOptionsCost(numberDays, tollTag, gps, roadside)
 {
     let optionsSubtotal = 0;
@@ -46,7 +52,9 @@ function getOptionsCost(numberDays, tollTag, gps, roadside)
     return optionsSubtotal;
 }
 
-//get drop off date for car
+/* This function gets the drop off date for a car
+* @param numberDays (number)  - the number of days chosen by the user 
+* @param pickupDate (number)  - the date the user chose as when they want their rental to start*/ 
 function getDropOffDate(pickupDate, numberDays)
 {
     let returnDate;
@@ -74,15 +82,33 @@ window.onload = function()
     let tollTagField = document.getElementById("tollTag");
     let gpsField = document.getElementById("gps");
     let roadsideField = document.getElementById("roadside");
+
+    let negativeNumbersField = document.getElementById("negativeNumbers");
+
     let subtotalField = document.getElementById("subtotal");
     let optionsCostField = document.getElementById("optionsCost");
     let u25chargeField = document.getElementById("u25charge");
     let finalTotalField = document.getElementById("finalTotal");
     let returnDateField = document.getElementById("returnDate")
 
+    pickupDateField.valueAsDate = new Date();
+
     const btnCalculate = document.getElementById("estTotalCost");
     btnCalculate.onclick = function()
     {
+        //validating number of nights to be bigger than 0
+        if (Number(numberDaysField.value) < 0)
+        {
+            let negNumbersError = "We don't need no stinking badges, but we do need positive numbers. Please try again.";
+            negativeNumbersField.innerHTML = negNumbersError;
+            return;
+        }
+        
+        else
+        {
+            negativeNumbersField.innerHTML = "";
+        }
+
         //rental subtotal with a switch to show a price which corresponds to a specific level of car 
         let rentalSubtotal = getRentalSubtotal(Number(numberDaysField.value), carTypeField.options[carTypeField.selectedIndex].value);
         

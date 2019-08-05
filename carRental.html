@@ -61,7 +61,7 @@
                 <div class="form-row">
                     <div class="col-md-6">
                         <label for="carType">Car Type</label>
-                        <select class="form-control" id="carType" name="carType" autofocus>
+                        <select class="form-control" id="carType" name="carType" autofocus required>
                             <option value="eco" selected>Economy</option>
                             <option value="comp">Compact</option>
                             <option value="int">Intermediate</option>
@@ -73,34 +73,13 @@
                 <div class="form-row">
                     <div class="col-md-6">
                         <label for="pickupDate">Pickup date</label>
-                        <input type="date" class="form-control" id="pickupDate" name="pickupDate" min="2019-07-01" max="2020-08-31">
+                        <input type="date" class="form-control" id="pickupDate" name="pickupDate" min="2019-07-01" max="2020-08-31" value="2019-08-01" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="col-md-6">
                         <label for="numberDays">Number of days</label>
-                        <select class="form-control" id="numberDays" name="numberDays">
-                            <option value="1" selected>1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                            <option value="11">11</option>
-                            <option value="12">12</option>
-                            <option value="13">13</option>
-                            <option value="14">14</option>
-                            <option value="15">15</option>
-                            <option value="16">16</option>
-                            <option value="17">17</option>
-                            <option value="18">18</option>
-                            <option value="19">19</option>
-                            <option value="20">20</option>
-                        </select>
+                        <input type="number" class="form-control" id="numberDays" name="numberDays" required placeholder="Enter number of days" min="1" max="28">
                     </div>
                 </div>
                 <div class="form-row">
@@ -109,39 +88,46 @@
                 <div class="form-row">
                     <div class="col-md-6">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="tollTag" id="tollTag">
+                            <input class="form-check-input" type="checkbox" value="tollTag" id="tollTag" required>
                             <label class="form-check-label" for="tollTag">
                                 Electronic Toll Tag ($3.95/Day)
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="gps" id="gps">
+                            <input class="form-check-input" type="checkbox" value="gps" id="gps" required>
                             <label class="form-check-label" for="gps">
                                 GPS ($2.95/Day)
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="roadside" id="roadside">
+                            <input class="form-check-input" type="checkbox" value="roadside" id="roadside" required>
                             <label class="form-check-label" for="roadside">
                                 Roadside Assistance ($2.95/day)
                             </label>
                         </div>
                         <p class="break">Under 25?</p>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="under25" id="u25No" value="No" checked>
+                            <input class="form-check-input" type="radio" name="under25" id="u25No" value="No" checked required>
                             <label class="form-check-label" for="u25No">No</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="under25" id="u25Yes" value="Yes">
+                            <input class="form-check-input" type="radio" name="under25" id="u25Yes" value="Yes" required>
                             <label class="form-check-label" for="u25Yes">Yes</label>
                         </div>
                         <br />
                         <button type="button" class="btn btn-primary" id="estTotalCost">Estimate Total Rental Cost</button>
                         <button type="reset" class="btn btn-danger">Reset</button>
+                        <p id="negativeNumbers"></p>
                     </div>
                 </div>
                 <hr>
                 <!--form for results-->
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <label for="returnDate">Return Date</label>
+                        <input class="form-control" type="text" id="returnDate" name="returnDate" readonly>
+                    </div>
+                </div>
                 <div class="form-row">
                     <div class="col-md-6">
                         <label for="subtotal">Car Rental Subtotal</label>
@@ -176,12 +162,6 @@
                             <div class="input-group-text">$</div>
                             <input class="form-control" type="text" id="finalTotal" name="finalTotal" readonly>
                         </div>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="col-md-6">
-                        <label for="returnDate">Return Date</label>
-                        <input class="form-control" type="text" id="returnDate" name="returnDate" readonly>
                     </div>
                 </div>
             </form>

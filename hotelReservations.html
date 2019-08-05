@@ -75,44 +75,14 @@
                     <div class="form-row">
                         <div class="col-md-6">
                             <label for="checkinDate">Check-In Date</label>
-                            <input type="date" class="form-control" id="checkinDate" name="checkinDate">
+                            <input type="date" class="form-control" id="checkinDate" name="checkinDate" value="2019-08-01" required>
                         </div>
                     </div>
                     <!--This is the select for the number of nights-->
                     <div class="form-row">
                         <div class="col-md-6">
                             <label for="numberNights">Number of Nights you'd like to stay</label>
-                            <select class="form-control" id="numberNights" name="numberNights">
-                                <option value="1" selected>1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                                <option value="20">20</option>
-                                <option value="21">21</option>
-                                <option value="22">22</option>
-                                <option value="23">23</option>
-                                <option value="24">24</option>
-                                <option value="25">25</option>
-                                <option value="26">26</option>
-                                <option value="27">27</option>
-                                <option value="28">28</option>
-                            </select>
+                            <input type="number" class="form-control" id="numberNights" name="numberNights" required placeholder="Enter number of nights" min="1" max="28">
                         </div>
                     </div>
                     <!--select for number of adults-->
@@ -130,8 +100,7 @@
                         <div class="col-md-3">
                             <label for="numberKids">Number of Children</label>
                             <select class="form-control" id="numberKids">
-                                <option value="children" selected>Select a number of children</option>
-                                <option value="0">0</option>
+                                <option value="0" selected>0</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -141,13 +110,13 @@
                     </div>   
                     <p class="break">Would you like to include breakfast? ($6.96/adult and $3.95/child per day)</p>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="breakfast" value="yes" id="yesBfast">
+                        <input class="form-check-input" type="radio" name="breakfast" value="yes" id="yesBfast" required>
                         <label class="form-check-label" for="yesBfast">
                             Yes
                         </label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="breakfast" value="no" id="noBfast" checked>
+                        <input class="form-check-input" type="radio" name="breakfast" value="no" id="noBfast" checked required>
                         <label class="form-check-label" for="noBfast">
                             No
                         </label>
@@ -155,23 +124,25 @@
                     <p class="break">Are you eligible for a discount?</p>
                     <small class="form-text text-muted">Please have the proper card available at check-in</small>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="discount" id="none" value="none" checked>
+                        <input class="form-check-input" type="radio" name="discount" id="none" value="none" checked required>
                         <label class="form-check-label" for="none">None</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="discount" id="aaa" value="aaa">
+                        <input class="form-check-input" type="radio" name="discount" id="aaa" value="aaa" required>
                         <label class="form-check-label" for="aaa">AAA Discount</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="discount" id="senior" value="senior">
+                        <input class="form-check-input" type="radio" name="discount" id="senior" value="senior" required>
                         <label class="form-check-label" for="senior">Senior Discount</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="discount" id="military" value="military">
+                        <input class="form-check-input" type="radio" name="discount" id="military" value="military" required>
                         <label class="form-check-label" for="military">Military Discount</label>
                     </div>
                     <button type="button" class="btn btn-primary" id="estRoomCost">Estimate Cost of Your Stay</button>
                     <button type="reset" class="btn btn-danger">Reset</button>
+                    <p id="noRoomAtInn"></p>
+                    <p id="negativeNumbers"></p>
     
                     <hr>
                     <!--form for results-->

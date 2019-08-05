@@ -2,7 +2,12 @@
 
 //this calculates the price of a hotel by using functions with parameters
 
-//see if a hotel room can hold a given amount of people, given the rooms array and the room type, number of adults and number of kids from the website
+/* This function sees if a hotel room can hold a given amount of people 
+* @param rooms (array) - the array holding the room types, occupancies, and rates
+* @param roomTypeInput (string) - the room type input from the user
+* @param numberAdults (number)  - the number of adults chosen by the user
+* @param numberKids (number) - the number of kids chosen by the user */
+
 function canRoomHoldCustomer(rooms, roomTypeInput, numberAdults, numberKids)
 {
     let occupants = numberAdults + numberKids;
@@ -17,7 +22,11 @@ function canRoomHoldCustomer(rooms, roomTypeInput, numberAdults, numberKids)
     return false;
 }
 
-//get the cost of the room, given the rooms array, and the room type and number of nights from the website
+/* This function gets the cost of the room 
+* @param rooms (array) - the array holding the room types, occupancies, and rates
+* @param roomTypeInput (string) - the room type input from the user
+* @param numberNights (number)  - the number of nights chosen by the user
+* @param checkinDate (number) - the check-in date chosen by the user, which is not being used right now*/
 function getRoomCost(rooms, roomTypeInput, checkinDate, numberNights)
 {
     let roomCost = 0;
@@ -33,7 +42,10 @@ function getRoomCost(rooms, roomTypeInput, checkinDate, numberNights)
     return roomCost;
 }
 
-//get total of breakfast, given number of adults, number of kids and number of nights from the website
+/* This function gets the total of breakfast
+* @param numberAdults (number)  - the number of adults chosen by the user
+* @param numberKids (number) - the number of kids chosen by the user
+* @param numberNights (number)  - the number of nights chosen by the user */
 function getBreakfastCost(numberAdults, numberKids, numberNights)
 {
     let breakfastCostInput = document.querySelector("input[name='breakfast']:checked").value;
@@ -47,7 +59,9 @@ function getBreakfastCost(numberAdults, numberKids, numberNights)
     return breakfastCost;
 }
 
-//get the discount on a room, given the total cost from other functions (fully calculated below) and the discount amount selected on the website
+/* This function gets the discount on a room
+* @param roomCostBeforeDiscount (number)  - the price of the room from other functions
+* @param discount (string) - the discount amount selected on the website */
 function getDiscount(roomCostBeforeDiscount, discount)
 {
     discount = document.querySelector("input[name=discount]:checked").value;
@@ -70,7 +84,9 @@ function getDiscount(roomCostBeforeDiscount, discount)
     return totalDiscount;
 }
 
-//get the checkout date from the check-in date and number of nights
+/* This function gets the checkout date
+* @param checkinDate (date)  - the date chosen by the user
+* @param numberNights (number)  - the number of nights chosen by the user */ 
 function getCheckOutDate(checkinDate, numberNights)
 {
     let checkOutDate;
@@ -109,6 +125,7 @@ window.onload = function ()
 
     //alert
     let noRoomAtInnField = document.getElementById("noRoomAtInn");
+    let negativeNumbersField = document.getElementById("negativeNumbers");
 
     //display fields
     let finalCheckInField = document.getElementById("finalCheckIn");
@@ -117,6 +134,8 @@ window.onload = function ()
     let discountField = document.getElementById("discount");
     let taxField = document.getElementById("tax");
     let finalTotalField = document.getElementById("finalTotal")
+
+    checkinDateField.valueAsDate = new Date();
 
     //on button click
     const btnCalculate = document.getElementById("estRoomCost");
@@ -127,8 +146,24 @@ window.onload = function ()
         let roomHoldCustomer = canRoomHoldCustomer(rooms, roomTypeVariable, Number(numberAdultsField.value), Number(numberKidsField.value));
         if (roomHoldCustomer == false)
         {
-            alert("You have too many people for that room. Please choose another room option or call us at 555-867-5309 to book more than one room.")
+            let tooManyError = "You have too many people for that room. Please choose another room option or call us at 555-867-5309 to book more than one room.";
+            noRoomAtInnField.innerHTML = tooManyError;
             return;
+        }
+        else {
+            noRoomAtInnField.innerHTML = "";
+        }
+
+        //validating number of nights to be bigger than 0
+        if (Number(numberNightsField.value) < 0)
+        {
+            let negNumbersError = "We don't need no stinking badges, but we do need positive numbers. Please try again.";
+            negativeNumbersField.innerHTML = negNumbersError;
+            return;
+        }
+        else
+        {
+            negativeNumbersField.innerHTML = "";
         }
 
         //Room cost subtotal with parameters passed (rooms is the array; roomTypeVariable, checkinDateField, and numberNightsField are the external input)
@@ -143,11 +178,12 @@ window.onload = function ()
             breakfastCost = 0;
         }
 
+        //discount amount with total room cost from below and dicsount field as parameters
+        let discountAmount = getDiscount(roomsSubtotal, discountField.value);
+
+
         //calculation to create subtotal for room cost
         let totalRoomCost = breakfastCost + roomsSubtotal;
-
-        //discount amount with total room cost from below and dicsount field as parameters
-        let discountAmount = getDiscount(totalRoomCost, discountField.value);
 
         //checkoutdate with parameters passed
         let checkinDate = checkinDateField.value;
