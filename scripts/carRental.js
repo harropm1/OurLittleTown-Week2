@@ -73,6 +73,16 @@ function getDropOffDate(pickupDate, numberDays)
     return returnDate;
 }
 
+//disables previous day from today in drop downs
+function disablePreviousDays() {
+    const currDate = new Date();
+    const currMonth = currDate.getMonth() > 9 ? currDate.getMonth() + 1 : '0' + (currDate.getMonth() + 1);
+    const currDay = currDate.getDate() > 9 ? currDate.getDate() : '0' + currDate.getDate();
+    
+    const dateStr = currDate.getFullYear() + '-' + currMonth + '-' + currDay;
+    return dateStr;
+}
+
 window.onload = function()
 {
     //defining variables
@@ -92,6 +102,7 @@ window.onload = function()
     let returnDateField = document.getElementById("returnDate")
 
     pickupDateField.valueAsDate = new Date();
+    pickupDateField.setAttribute('min', disablePreviousDays());
 
     const btnCalculate = document.getElementById("estTotalCost");
     btnCalculate.onclick = function()

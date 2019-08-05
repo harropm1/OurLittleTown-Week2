@@ -106,6 +106,16 @@ function getCheckOutDate(checkinDate, numberNights)
     return checkOutDate;
 }
 
+//disables previous day from today in drop downs
+function disablePreviousDays() {
+    const currDate = new Date();
+    const currMonth = currDate.getMonth() > 9 ? currDate.getMonth() + 1 : '0' + (currDate.getMonth() + 1);
+    const currDay = currDate.getDate() > 9 ? currDate.getDate() : '0' + currDate.getDate();
+    
+    const dateStr = currDate.getFullYear() + '-' + currMonth + '-' + currDay;
+    return dateStr;
+}
+
 //window on load
 window.onload = function ()
 {
@@ -136,6 +146,7 @@ window.onload = function ()
     let finalTotalField = document.getElementById("finalTotal")
 
     checkinDateField.valueAsDate = new Date();
+    checkinDateField.setAttribute('min', disablePreviousDays());
 
     //on button click
     const btnCalculate = document.getElementById("estRoomCost");
